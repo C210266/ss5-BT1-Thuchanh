@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Thêm mới</h1>
+<form action="/add" th:object="${person}" method="post" enctype="multipart/form-data">
+    <table border="10" cellpadding="20" cellspacing="10">
+        <tr>
+            <th>Name</th>
+            <td><input type="text" th:field="*{name}" required></td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td><input type="number" th:field="*{age}" min="18"></td>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <td><input type="file" th:field="*{avatar}"></td>
+        </tr>
+        <tr>
+            <th>Sex</th>
+            <td><select th:field="*{sex}">
+                <option value="true">Nam</option>
+                <option value="false">Nữ</option>
+            </select></td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td><input type="text" th:field="*{address}"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Add"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Chinh sua</h1>
+<form action="/update" method="post" th:object="${person}" enctype="multipart/form-data">
+    <table border="10" cellspacing="10" cellpadding="20">
+        <tr>
+            <th>ID</th>
+            <td><input type="text" th:field="*{id}" readonly></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td><input type="text" th:field="*{name}" required></td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td><input type="number" th:field="*{age}" min="18"></td>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <td>
+                <div>
+                    <img th:src="@{|/upload/${person.avatar}|}" alt="">
+                </div>
+                <input type="file" name="avatar"
+                ></td>
+        </tr>
+        <tr>
+            <th>Sex</th>
+            <td>
+                <select th:field="*{sex}">
+                    <option value="true">Nam</option>
+                    <option value="false">Nữ</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td><input type="text" th:field="*{address}"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Update"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
